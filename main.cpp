@@ -44,14 +44,17 @@ int main(int argc, char* argv[])
     //
     string inputfile, outputfile;
 
-    if (!getFilenames(argc, argv, inputfile, outputfile))
+    if (!getFilenames(argc, argv, inputfile, outputfile)) {
+      MPI_Finalize();
       return 0;
+    }
 
     int  N;
     int* A = readData(inputfile, N, numProcs);
 
     if (A == nullptr) {
       cout << "**ERROR: unable to open input file '" << inputfile << "'" << endl;
+      MPI_Finalize();
       return 0;
     }
 
