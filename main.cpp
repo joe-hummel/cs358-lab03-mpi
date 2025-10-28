@@ -4,7 +4,7 @@
 // MPI program to compute prefix sum from a file of integers, writing
 // the results to an output file.
 //
-// YOUR NAME
+// Prof. Joe Hummel
 // Northwestern University
 //
 
