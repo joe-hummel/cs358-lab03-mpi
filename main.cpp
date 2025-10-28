@@ -117,6 +117,8 @@ int* readData(string inputfile, int& N, int numProcs)
   
   for (int i=0; i<N; i++)
     infile >> A[i];
+  
+  infile.close();
 
   //
   // for debugging purposes, output first and last 3 values:
@@ -141,6 +143,14 @@ int* readData(string inputfile, int& N, int numProcs)
 void writeData(string outputfile, int B[], int N)
 {
   cout << "**Writing to '" << outputfile << "'..." << endl;
+  
+  ofstream outfile;
+  outfile.open(outputfile);
+  
+  for (int i = 0; i < N; i++)
+    outfile << B[i] << endl;
+  
+  outfile.close();
 }
 
 
